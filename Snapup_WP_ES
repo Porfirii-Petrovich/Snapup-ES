@@ -1,0 +1,709 @@
+\documentclass[12pt, a4paper, oneside]{book}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{afterpage}
+\usepackage[x11names]{xcolor}
+\usepackage{mdframed}
+\usepackage{titletoc}
+\usepackage[export]{adjustbox}
+\usepackage{etoolbox}
+\usepackage{eurosym}
+\usepackage{subcaption}
+\usepackage[explicit]{titlesec}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{background}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{fancyhdr}
+\backgroundsetup{contents={}}
+
+\definecolor{snapupgreen}{RGB}{76,175,80}
+\definecolor{wptheme}{RGB}{0,51,51}
+
+% LightSteelBlue3!80!
+\newlength\rulew
+\titleformat{\chapter}[block]
+{\filleft\sffamily\bfseries}
+{\fontsize{120}{120}\selectfont\textcolor{snapupgreen}{\thechapter}\hskip8mm\titlerule[0.8pt]}
+{0em}
+{\fontsize{32}{36}\bfseries\llap{\parbox[b]{0.7\linewidth}{\filleft#1\vskip0.6ex}}}
+\titlespacing*{\chapter}{0pt}{-75pt}{18ex}
+
+
+
+% \pretocmd{\tableofcontents}{\begin{mdframed}[backgroundcolor=wptheme,hidealllines=true]}{}{}
+\pretocmd{\tableofcontents}{\begin{mdframed}[backgroundcolor=wptheme,hidealllines=true]\let\cleardoublepage\relax}{}{}
+\apptocmd{\tableofcontents}{\end{mdframed}}{}{}
+\patchcmd{\tableofcontents}{\contentsname}{\color{snapupgreen}\contentsname}{}{}
+\titlecontents{section}
+[4em]{\sffamily}
+{\color{snapupgreen}\contentslabel{2.3em}\normalcolor\color{white}}{}
+{\titlerule*[1000pc]{.}\contentspage\\\hspace*{-3em}\vspace*{2pt}%
+\color{white}\rule{\dimexpr\textwidth-20pt\relax}{1pt}}
+\titlecontents{lsection}
+[5.8em]{\sffamily}
+{\color{snapupgreen}\contentslabel{2.3em}\normalcolor}{}
+{\titlerule*[1000pc]{.}\contentspage\\\hspace*{-5.8em}\vspace*{2pt}%
+\color{white}\rule{\dimexpr\textwidth-15.5pt\relax}{1pt}}
+\makeatletter
+\renewcommand*\l@chapter[2]{%
+\ifnum \c@tocdepth >\m@ne\color{white}
+\addpenalty{-\@highpenalty}%
+\vskip 1.0em \@plus\p@
+\setlength\@tempdima{1.5em}%
+\begingroup
+\parindent \z@ \rightskip \@pnumwidth
+\parfillskip -\@pnumwidth
+\leavevmode
+\advance\leftskip\@tempdima
+\hskip -\leftskip
+\colorbox{snapupgreen}{\strut%
+\makebox[\dimexpr\textwidth-2\fboxsep-7pt\relax][l]{%
+\color{white}\bfseries\sffamily#1%
+\nobreak\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}}}\par\smallskip
+\penalty\@highpenalty
+\endgroup
+\fi}
+\makeatother
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {%
+  \includegraphics[width=\paperwidth,height=\paperheight]{snapup-cover-wp@1x.png}%
+  };
+\end{tikzpicture}
+\cleardoublepage{}
+
+% \begin{titlepage}
+%     \pagecolor{snapupgreen}\afterpage{\nopagecolor }
+%     \centering
+%     \vfill
+% {\bfseries\Large
+%     Performance Report\\
+%     First Quarter 2011\\
+%     \vskip2cm
+%     A. Uthor\\
+% }
+% \vfill
+% \begin{figure}
+% \Huge\bfseries\sffamily
+% \setlength{\fboxrule}{2pt}
+% \centering
+% \vfill
+% % \fbox{A revolutionary way to shop}
+% \newline
+% \fbox{for premium products}
+% \end{figure}
+% \includegraphics[width=10cm]{snapup-cover-wp@1x.png} % also works with logo.pdf
+% \vfill
+% \vfill
+% \end{titlepage}
+
+% \begin{figure}
+% \includegraphics[width=\linewidth]{}
+% \caption{A }
+% \label{fig:}
+% \end{figure}
+
+
+\pagenumbering{gobble}
+\newpage
+\pagecolor{wptheme}
+\tableofcontents
+\pagecolor{wptheme}\afterpage{\nopagecolor }
+\newpage
+\pagenumbering{arabic}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\thepage}
+\lhead{\textit {\leftmark}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[RE,LO]{\textit{\footnotesize Snapup OU. Narva mnt 5, Kesklinna linnaosa, Tallinn, Harju maakond, 10117 - Estonia}}
+
+
+\chapter{SNAPUP - Introducción}
+\section{LA GRAN IDEA}
+Hay una gran desconexión entre la cantidad de productos que captan nuestra atención e imaginación cada año
+y la cantidad que finalmente decidimos y podemos permitirnos comprar debido a los precios prohibitivos que suelen tener estos artículos tan anunciados o premium. Por ello mucha gente se ve forzada a realizar intercambios.
+\newline
+No obstante, este problema se puede solucionar mediante un sistema que permita a los particulares compartir una parte de su riqueza de manera mutuamente beneficiosa.
+\newline \newline
+Snapup es una plataforma para realizar compras compartidas que permitan a las personas
+“compartir de manera inteligente” su dinero, y obtener un grandes beneficios en el proceso.
+Esto potencia el poder de la criptomoneda, el último avance en TI y el poder de la comunidad para ayudar a los demás a obtener los productos que desean ahorrando entre un 80% y un 90% del precio.
+\newline \newline
+Nuestro mecanismo es diferente a cualquier cosa que se haya inventado antes.
+Toma lo mejor de ideas que han demostrado ser exitosas en el pasado, Online Penny Auctions y GPOs, innovando con nuestro revolucionario modelo económico basado en meritocracia y ¡las adapta a la nueva era de Internet!
+
+\section{Un Mercado Cambiante}
+El nacimiento de nuestro negocio está basado en el análisis de numerosas fuerzas Económicas, Sociales y Tecnológicas que hacen que este momento sea históricamente ideal para llevarlo a cabo:
+\newline
+La demanda glboal de artículos de lujo es sólida y está creciento rápidamente, con ms de \$200 millardos de ventas anuales. Los consumidores compran estos productos por diversar razones, entre las que se encuentran el status, la riqueza y la exclusividad. [1]
+\newpage \noindent
+Este tipo de productos de alta calidad son muy populares entre al gente joven de entre 18 y 30 años, especialmente tecnología y ropa, pero estas generaciones también han demostrado ser más exigentes con los precios en comparación con las generaciones más longevas y se enfocan en conseguir el máximo con su dinero. [2]
+\newline \newline
+\textit {“A medida que los consumidores de las generaciones Z y Millennial se convierten en una fuerza dominante del gasto, sus teléfonos son su conexión al mundo, y cada vez es ms fácil gastar su dinero a través de ellos.” - Ms. Drucker Mann}
+\newline \newline
+El mercado de servicios que trata de atender a necesidades similares se enfrenta a un periodo de decadencia porque los negocios implantados no están llevando a cabo cambios tecnológicos de acuerdo a los hábitos de las nuevas generaciones.
+\newline \newline
+Las soluciones actuales están diseñadas para encajar en un mundo que ya no existe:
+\begin{itemize}
+  \item
+  Asumen que las personas interactuarán con sus páginas web usando un ordenador de sobremesa, por lo que no tienen experiencia en optimización para dispositivos móviles.
+  \item
+  No están preparados para un mundo en el que la Economía Colaborativa, los Smartphones y los Métodos de Pago Alternativos son los términos imperantes.
+\end{itemize}
+Si pensamos en ello, hace menos de una década solo podías navegar por la red a través de tu ordenador de sobremesa desde casa. Florecieron negocios como los Puntos de Internet que hoy en día son cada vez menos según van pasando los años.
+\newline
+¿Por qué? ¡Starbucks! No, no, solo bromeaba.
+\newline
+Un estudio de Google de 2016 afirmaba que el 70\% de las búsquedas de google se hacían a través de un smartphone. [3][4]
+\newline
+El año pasado, el número de smartphones usados alcanzaron máximos históricos y un número aún mayor de personas los usaron para conectarse desde de manera ubicua:
+\newline \newline
+$Alemania, 74\%, Francia, 66\%, Reino Unido, 83\%, Italia, 29\% [5]$
+\newline \newline
+Los smartphones se están convirtiendo en parte integral de nuestras vidas, de hecho lo primero que 7 de cada 10 personas hace después de abrir los ojos por la mañana es, lo has adivinado, ¡revisar su smartphone! [6]
+
+\newpage \noindent
+\section{El Problema}
+Generalmente, en este sentido, las empresas buscaron crear apps para lanzarlas en la app store. Pero esto tiene un gran número de desventajas económicas y tecnológicas, ahora incluso más que antes:
+
+\begin{itemize}
+  \item
+  El mercado de las apps móviles está saturado. Hay millones e apps en la app store pero cuantiosos estudios han demostrado que de media cada usuario utiliza habitualmente no más de 5 apps de entre las instaladas en su dispositivo, aparte de las preinstaladas por la marca del fabricante. [7]
+
+  \item
+  El 77 por ciento de los usuarios no vuelve a usar una app de nuevo tras los primeros 3 días desde su instalación, que es la razón por la que de las más de 1,5 millones de apps en la Play store de Google, solo unas pocas miles tienen un tráfico significativo. [8]
+
+  \item
+  Instalar software en los dispositivos significa tener que llevar a cabo actualizaciones que la gente tendrá que descargar, teniendo que lidiar con la complejidad de gestionar diferentes versiones de tu app de manera simultanea en los dispositivos.
+  Esto hace que los costes de desarrollo y mantenimiento se disparen.
+
+  \item
+  Tu código está en manos de terceros. Para liberar una actualización para tu actualización tienes que pedir permiso a la store en la que se distribuye tu app y esperar su aprobación. Este proceso puede durar varios días.
+
+  \item
+  Los Smartphones corren en diferentes sistemas operativos: iOS, Windows Phone, Android...
+  Estos sistemas operativos no son compatibles, por lo que debes tener al menos 3 versiones diferentes de la misma aplicacin si quieres ser capaz de usarla en cualquier dispositivo.
+\end{itemize}
+
+Otros problemas importantes a los que se enfrentan los negocios son:
+\begin{itemize}
+  \item
+  Interactuar con miles de usuarios al mismo tiempo que necesitan estar informados y notificados al instante.
+\end{itemize}
+\noindent
+De hecho, si quieres lanzar un negocio del estilo tienes que tener en cuenta los enormes costes y complejidades asociadas a la creación y gestión de una arquitectura de TI que pueda soportar miles si no decenas de miles de accesos simultáneamente, rápidamente y de forma segura, porque hablamos de gestionar movimientos y transacciones financieras, así como órdenes de compra.
+\begin{itemize}
+  \item
+  La gente exige cada vez más que las interacciones con las aplicaciones sean rápidas, las interfaces intuitivas, familiares, y que se adapten perfectamente a cualquier dispositivo desde el que se interactúe.
+\end{itemize}
+
+\section{¿Qué necesitamos entonces?}
+Una Aplicación Web que se comporte exactamente como una app móvil, que funcione de la misma manera en todo tipo de dispositivos, incluyendo Escritorios, que soporte la carga de miles de usuarios que interactúen al mismo tiempo con costes reducidos y que ofrezca un sistema innovador de ventas orientado a satisfacer necesidades especficas: Permitir a las personas, de la manera ms sencilla e intuitiva, con unos pocos clicks o taps, ahorrar en los productos más anunciados o de mayor calidad; y por último pero no menos importante, aceptar una gran variedad de métodos de pago: Tarjetas de Crédito tradicionales, PayPal, Huella Dactilar, Criptomonedas, etc...
+\newline \newline
+Esto no ha sido posible, ¡hasta ahora!
+
+\section{Nuestra solución}
+Hasta hace unos pocos años las tecnologías específicas para alcanzar estos resultados no existían, y las que existían eran terriblemente ineficientes, complicando demasiado las cosas y encareciendo la gestión a medida que escalaban.
+Este ya no es el caso gracias a los últimos avances en la Industria de TI llevados a cabo por los ingenieros de Google y Facebook.
+\newline \newline
+Hemos invertido incontables horas de estudio e investigación en las tecnologías más innovadores, que combinadas con nuestro mecanismo de ventas revolucionario están resolviendo de manera brillante todos los problemas que obstaculizaban que estas oportunidades surgieran en el mercado.
+
+\newpage
+\titlespacing{\chapter}{0pt}{-75pt}{50pt}
+\chapter{¿Qué es Snapup?}
+\noindent
+Para la gente joven de entre 18 y 30 años, que demandan estar a la última en tendencias de moda y tecnología, Snapup es una plataforma revolucionaria que les permite ahorrar entre un 80\% y un 90\% en los precios al por menor en los productos premium que más desean.
+\newline \newline
+\textit {A diferencia de todo lo que ha habido hasta ahora, está basado en un nuevo modelo económico
+que permite a las personas compartir de manera inteligente su riqueza en beneficio mútuo mediante un sistema meritocrático, orientado a multiplicar en órdenes de magnitud el poder de gasto de todas las personas que pertenezcan a la comunidad.}
+\newline \newline
+Es un catálogo virtualmente ilimitado gracias al drop shipment y construido sobre las últimas tecnologas que permiten la eficiencia en costes, seguridad, rapidez y uso intuitivo en cualquier dispositivo, sin necesidad de instalación.
+
+\section{¿Qué es un Snapup?}
+Un Snapup o Snap es un evento especial solo accesible para los miembros de Snapup, en el que sus participantes pueden elegir cuánto están dispuestos a pagar por un producto en particular que deseen, a un 10% o 20% de su precio al por menor.
+\newline
+Puedes imaginártelo como una Subasta, y la cantidad de gente dispuesta a pagar como su "puja".
+\newline
+A diferencia de las subastas tradicionales, que venden artículos al mejor postor, y tienen un proceso de pujas acumulativo en el que para obtener el producto tienes que sobrepujar la puja anterior, en Span cada puja es privada para el usuario, y representa la cantidad de "deseo" o "voluntad" del usuario para obtener el producto.
+\newline
+El número de participantes es limitado, y generalmente no sobrepasará las 300 personas. Un Snap siempre tiene un cesionario, o "ganador", de entre las personas que se unieron al evento.
+\newline \newline
+\textit {¿Cuánto estás dispuesto a pagar? El valor de tu "puja" representa cuánto deseas dicho producto, y se tendrá en cuenta al elegir al cesionario, o "ganador", de dicho evento, pero no será el único factor decisivo.}
+\newline \newline
+Unirse a un evento tiene un coste en Spancoins, nuestra criptomoneda ERC20.
+
+\section{Presentamos Snapcoin}
+Snapcoin es el medio a través del cual todo esto es posible.
+\newline
+Sirve como un almacén de valor y es la savia de nuestro negocio.
+\newline
+Gracias al flujo constante de manos de los clientes a las nuestras y viceversa, podemos cerrar los eventos y asignar los productos.
+\newline
+Todo aquél que tenga una cantidad de Snapcoins puede unirse a un Snapup y tener la posibilidad de ahorrar hasta un 90% en el producto que desee, y ayudar a otros a hacer lo mismo, mientras aumenta las posibilidades de obtener la recompensa para sí mismo en futuras interacciones.
+\newline \newline
+\begin{figure}[H]
+  \centerline {\includegraphics[width=6cm]{snap-coin@0,33x.png}}
+\end{figure}
+\centerline {\small \textit{Snapcoin, our ERC20 Cryptocurrency}}
+
+\newpage
+
+\section{¡Obtén algo de buen karma!}
+P: ¿Cómo se elige el cesionario de un Snap?
+\newline
+R: Con nuestro Algoritmo de Recompensa Basado en Meritocracia
+\newline \newline
+Cada acción que lleves a cabo en la plataforma, como invitar a un amigo a unirse, compartir tu experiencia u otras en tus RRSS, comprar Snapcoins etc. se premian con PUNTOS DE KARMA.
+\newline \newline
+La acción que ms puntos supone es la participación en eventos porque, haciéndolo, estás ayudando a otras personas a ahorrar en el producto que deseen al mismo tiempo, por supuesto, que tratas de conseguir beneficios también para ti.
+\newline
+La recompensa en Puntos de Karma aumenta proporcionalmente según el número de Snaps a los que te hayas unido pero no hayas ganado.
+\newline \newline
+\textit {En Resumen:
+Cuanto más activo sea un usuario en la plataforma, y cuanto más cerca del 20% esté el precio al por menor que estás dispuesto a pagar por el producto, mayores será tus probabilidades de resultar cesionario de dicho Snap.}
+\newline \newline
+Nuestro algoritmo está cuidadosamente calibrado para:
+\begin{itemize}
+  \item
+  Recompensar a los participantes con mayor número de Puntos de Karma, pero no tanto como para que sean los únicos que tengan posibilidades de ganar.
+  \item
+  Recompensar a los participantes que estén dispuestos a pagar ms por el producto a la vez que quedan buenas posibilidades para la gente que esté dispuesta a pagar menos.
+  \item
+  Asegurar que virtualmente nadie se queda sin recompensa después de unas pocas interacciones, porque los usuarios siguen adquiriendo Puntos de Karma de manera proporcional al tiempo que estén sin ganar un Snap. Cuando ganan, su contador vuelve a cero.
+\end{itemize}
+
+\section{Tú eliges tu Destino}
+Cuando te unes a un Snap, aparte de la cantidad de dinero que ests dispuesto a pagar por ese producto, se te pedirá escribir un código PIN de tres dígitos.
+\newline
+Esto permite que la Petición sea totalmente determinada por el usuario, en base a un evento externo y no manipulable, y por lo tanto imparcial.
+\newline
+Incluso un único cambio en el pin de un único participante ($tú$) puede suponer que un cesionario totalmente diferente.
+
+
+\section{Un Modelo Económico de Recompensas Sostenible}
+\begin{figure}[H]
+  \hspace*{-3cm}
+  \includegraphics[width=\paperwidth, left]{economic-model.png}
+  \hspace*{-1cm}
+\end{figure}
+Un modelo económico sostenible. Gracias al flujo de Snapcoins desde las manos de los usuarios a las nuestras y viceversa, y nuestro Algoritmo de Recompensas Basado en Meritocracia, el sistema permite multiplicar en varios órdenes de magnitud el poder de gasto de cada individuo que se una a la comunidad.
+
+\newpage
+\section{Beneficios para los Usuarios}
+\begin{itemize}
+  \item
+  Nuestro catálogo es virtualmente ilimitado gracias al drop shipment.
+  \item
+  Los productos son siempre nuevos y enviados directamente desde el fabricante o un vendedor autorizado.
+  \item
+  El sistema está pensado para funcionar para el público general, por lo que toda la complejidad de tener que manejar una cartera y criptomoneda será evitada para el usuario.
+  \item
+  Unirse y ganar eventos aumentará la circulación de la moneda. Cuanta más gente gane, más gente querrá tener Snapcoins y unirse a eventos, y su valor aumentará en consonancia.
+  \item
+  Los costes de participación en los eventos será la contraparte en Euros de los Snapcoins. Esto permite a la gente aumentar el número de eventos a los que se puede unir con la misma cantidad de Snapcoins ya que su valor crece en el tiempo.
+\end{itemize}
+
+\section{Beneficios para los Inversores}
+\begin{itemize}
+  \item
+  Snapup siempre tendrá una cantidad suficiente de dinero en caja para cubrir el precio de los productos y permitir un crecimiento sostenido y saludable del valor de Snapcoin, manteniendo una desproporcin sólida entre el suministro y demanda potenciada por nuestros esfuerzos de marketing y el apoyo de la comunidad.
+  \item
+  Listaremos y venderemos nuestras monedas en varios exchanges. En el futuro los Inversores podrán vender sus Snapcoins directamente desde nuestra plataforma, poniéndolas a la venta en la página de su cuenta en un "Pool de Inversión" del que se sacarán el 25\% de la cantidad total de monedas vendidas diariamente, distribuyendose los ingresos proporcionalmente al porcentaje que cada inversor ostente en el pool. Esto les permitirá vender siempre al mejor precio de mercado posible y nos permitirá controlar directamente el precio al que los Snapcoins se venden. *
+  \item
+  Los inversores podrán ser parte activa del crecimiento del valor de las monedas anunciando su éxito o el de sus clientes en sus RRSS.
+\end{itemize}
+
+\textit {\underline {Una comunidad incentivada y comprometida será el secreto de nuestro éxito}}
+\newline \newline
+\textit{*Los porcentajes y modalidades pueden ser sujetos a cambios}
+
+\newpage
+\titlespacing{\chapter}{0pt}{-75pt}{40pt}
+\chapter{HOJA DE RUTA y VISIÓN}
+\begin{figure}[H]
+  \hspace*{-2cm}
+  \includegraphics[width=18.5cm, left]{roadmap.png}
+  \hspace*{-1cm}
+\end{figure}
+\noindent
+El desarrollo del proyecto comenzó en diciembre de 2016 y por ahora, se ha creado una plataforma totalmente funcional disponible para su visita y uso por todo el mundo en \href{https://demo.snapup.biz}{https://demo.snapup.biz}
+\newline \newline
+Esperamos a la finalización del proceso de preparación para su lanzamiento en un plazo aproximado de 5 meses y consistirá en lo siguiente:
+\begin{itemize}
+  \item
+  La fundación de nuestra Sede en Tallinn, Estonia
+  \item
+  Contrataciones clave (Director de Marketing e Ingenieros TI)
+  \item
+  Finalización del Desarrollo
+  \item
+  Lanzamiento de la BETA de SNAPUP
+\end{itemize}
+\newpage \noindent
+La BETA de SNAPUP se lanzará entre un grupo seleccionado de personas que ya tengan Snapcoins gracias a la ICO y participarán en los eventos como beta-testers de la plataforma. Los eventos serán reales y los productos serán enviados a los cesionarios. El propósito de la BETA es testar todo el proceso y ser capaces de hacer ajustes, si es necesario, para asegurar la mejor experiencia posible desde en el futuro lanzamiento.
+\newline
+Esperamos que el período de la BETA sea bastante corto debido a que ya estamos en una fase de desarrollo bastante avanzada.
+\newline \newline
+La ICO nos ayudará a acelerar este proceso gracias a las persona que decidan probar nuestra DEMO. Esto nos permitirá ver cómo se comporta nuestra aplicación en el mundo real, cómo escala y reducirá enormemente el tiempo necesario para el lanzamiento de la aplicación.
+\newline \newline
+Planeamos lanzar la aplicación en todo el espacio europeo para el 2º trimestre de 2018. La gente de toda Europa podrá comprar Snapcoins en nuestra plataforma y serán listados en los mayores exchanges.
+\newline \newline
+Para el 3er trimestre de 2018 planeamos lanzar nuestro ALGORITMO SPIDER.
+\newline
+El ALGORITMO SPIDER hará que la base de datos de Snapup sea virtualmente ilimitada.\newline
+La gente será capaz de buscar el producto que desee en nuestra barra de búsquedas,
+que actuará como un motor de búsqueda, que recorrerá la red en busca de información necesaria para ese producto, y creará un Snapup sobre este punto para ese usuario.
+\newline
+Entonces, cuando el usuario se una al Snap, nuestro Algoritmo de Matching (ya desarrollado y usado activamente en la aplicación) simplemente hará un match entre un Snap activo en el mismo rango de precios, y unirá el recién creado con él.
+\newline \newline
+Esto es posible porque Snapup es una "idea", y no está relacionada con ningún producto particular.
+\newline \newline
+Para el final del 4º trimestre de 2018 lanzaremos nuestro Algoritmo de Reconocimiento de Imagen, que se basará en el Spider y permitirá a nuestros usuarios unirse a un Snap sacando una fotografía del producto que desean, en vez de escribiéndolo en la barra de búsquedas.
+\newline
+El Algoritmo de Reconocimiento de Imagen, o simplemente el Algoritmo de Fotos, es una red neural que será entrenada a traves de Supervised Learning (las fotos y el feedback de los usuarios), y aprenderá a extraer los nombres de los productos desde las imágenes, y simplemente enviarlos al Algoritmo Spider, que buscará en la red y creará un evento ad hoc.
+\newline \newline
+¡Para entonces verás a la gente unirse a eventos sacando fotos mientras va de compras!
+\newline \newline
+El último paso será lanzar Snapup en la India y Sudeste Asiático, y esperamos que esto se produzca para 2020.
+
+\section{El Gran “V”}
+Queremos que Snapup se convierta en la manera más inteligente de comprar online productos premium exclusivos.
+\newline \newline
+Queremos que el proceso de participación sea cada vez más simple y barato para la gente y queremos que nuestro nuevo modelo económico se extienda porque creemos que ayudará a la gente a mejorar la manera en que usan su dinero y las cosas que pueden comprar con él.
+\newline \newline
+Aumentaremos las categorías de venta desde Escapadas de Vacaciones a Entradas para Eventos como Paquetes VIP para directos de bandas famosas.
+\newline \newline
+Queremos que la gente sea capaz de "hacer dinero de su dinero" y "vivir el sueño" por un día, gracias a nuestra plataforma.
+\newline \newline
+Haremos que esto suceda gracias a nuestro equipo en constante crecimiento y a expertos de élite en la materia. Personas motivadas y con talento cuyas habilidades sólo están parejas a su deseo de éxito y dejar huella.
+\newline \newline
+Crearemos grandes innovaciones en el mercado y en 10 años seremos una corporación establecida.
+
+
+\chapter{Modelo de Negocio}
+\titlespacing{\chapter}{0pt}{-75pt}{18ex}
+\section{Ingresos Netos por Snapup}
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{gross-revenue.png}
+\end{figure}
+
+\chapter{Proyecciones y Previsiones de Ingresos}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\thepage}
+\lhead{\textit {\leftmark}}
+\fancyfoot{} % clear all footer fields
+
+\section{Aumento Esperado de Clientes y Gastos de Marketing}
+\begin{figure}[H]
+\centering
+\includegraphics[height=13cm]{customers-growth.png}
+\end{figure}
+\noindent \newline
+% \section{Previsión de Usuarios/Volumen de Negocio/EBITDA}
+\setlength{\textheight}{1.2\textheight}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\linewidth]{forecast-users1.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\linewidth]{forecast-users2.png}
+\end{figure}
+
+\titlespacing{\chapter}{0pt}{-75pt}{50pt}
+\chapter{ICO y Distribución de Tokens}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\thepage}
+\lhead{\textit {\leftmark}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[RE,LO]{\textit{\footnotesize Snapup OU. Narva mnt 5, Kesklinna linnaosa, Tallinn, Harju maakond, 10117 - Estonia}}
+
+\thispagestyle{empty}
+\setlength{\textheight}{0.9\textheight}
+\noindent
+Snapup será financiado a través de una Initial Coin Offering (ICO) de 5 semanas de duración (1 de PREVENTA + 4 Rondas de 1 Semana).
+\section{Bonuses and Distribution Timeline}
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{timeline.png}
+\end{figure}
+
+\section{Desglose de la Distribución}
+\begin{tabular}{lr}
+      Total de Tokens Emitidos & 200.000.000 SNP \\
+      Tokens Distribuidos (Crowdsale) & 100.000.000 SNP \\
+      Tokens Distribuidos (Recompensas) & 4.000.000 SNP \\
+      Reserva de Monedas & 76.000.000 SNP \\
+      Incentivo para el Equipo & 20.000.000 SNP \\
+\end{tabular}
+% Total de Tokens Emitidos: 200.000.000 SNP
+% \newline
+% Tokens Distribuidos (Crowdsale): 100.000.000 SNP
+% \newline
+% Tokens Distribuidos (Recompensas): 10.000.000 SNP
+% \newline
+% Reserva de Monedas: 70.000.000 SNP
+% \newline
+% Incentivo para el Equipo: 20.000.000 SNP
+\newline \newline \newline
+No se emitirán más tokens una vez terminado el minado inicial.
+
+\begin{figure}[H]
+  \center
+  \includegraphics[width=0.9\linewidth]{distribution_breakdown.png}
+\end{figure}
+
+\newpage
+\setlength{\textheight}{\textheight}
+\section{Snapcoin Value}
+
+1 SNP = 0.33\euro
+\newline
+1 SNP = 0.38\$
+\newline
+1 SNP = 0.001785809 ETH
+\newline
+1 SNP = 0.000159666 BTC
+\newline
+(al tipo de cambio del \euro/\$, \$/ETH, \$/BTC el 13 de julio de 2017)
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{snapcoin-distribution.png}
+\end{figure}
+\noindent
+  \centerline {\textbf{SOFT CAP: 5MM\$}}
+  \newline
+  \centerline {\textbf{HARD CAP: 33MM\$}}
+\noindent \newline \newline
+Si no se alcanza el hard cap, el valor de Snapcoin se calculará mediante la siguiente fórmula:
+\newline
+{\Large\[v = \dfrac{m}{s}\]}
+\begin{center}
+{\textit{\footnotesize v = valor, m = market cap alcanzado, s = suministro de distribución siendo s una constante de valor 100.000.000}}
+\end{center}
+\newline \newline
+y será distribuido de acuerdo a la siguiente fórmula:
+{\Large\[t = (1+\dfrac{b}{100})a, a = \dfrac{c}{v}\]}
+\begin{center}
+{\textit{\footnotesize T = Cantidad Total a recibir; b = Bonus, a = cantidad; c = capital emitido por el inversor (EUR), v = valor del token (EUR)}}
+\end{center}
+\noindent \newline \newline \newline
+El cálculo se llevará a cabo en EUROs y los tipos de cambio que se tendrán en cuenta serán la media de los principales mercados el día de cierre de la crowdsale.
+
+\newpage
+\section{Uso de los Fondos}
+Como Snapcoin tiene un uso activo en nuestra plataforma, y los tokens que estamos distribuyendo proporcionan la capacidad y el derecho a unirse a eventos a sus titulares,
+su valor respectivo en EUROS se usará para comprar los productos en los eventos en los que se haya sido cesionario.
+\newline
+Esta cantidad de dinero tendrá que estar disponible y controlada por SNAPUP ya que no pocemos predecir ni el tipo doe afluencia ni el tipo de cambio en el que los eventos se cerrarán.
+\newline \newline
+Por esta razón, siempre tendremos que tener en caja una cantidad de dinero congruente con el valor de todas las Snapups realizables con los Snapcoins en circulación, que con nuestro modelo de negocio constituye un 50\% del total.
+\newline \newline
+Así, la cantidad de dinero que destinaremos para el desarrollo de nuestro negocio será del 50\% de la cantidad recaudada, que representa nuestros INGRESOS BRUTOS sobre la cantidad de tokens vendida durante la ICO minorada en un 15\% (el precio medio de venta de los productos vendidos).
+\newline
+Los fondos se emplearán de la siguiente manera:
+
+\begin{figure}[H]
+  \hspace*{-2cm}
+  \includegraphics[width=1.25\linewidth]{usefunds.png}
+\end{figure}
+
+\newpage
+\section{Escrow y Disposición de Fondos}
+Como consecuencia de las consideraciones expuestas, nuestro modelo de negocio hace que la gestión de los fondos a través de escrow sea sumamente poco práctica y una fuente potencial de dificultades para los gestores, para nuestro mercado, y una amenaza potencial para la supervivencia de nuestro negocio de considerables proporciones.
+\newline \newline
+Como el valor de Snapcoin será determinado por la Oferta y la Demanda,
+quedarnos sin liquidez supondría nuestra incapacidad para hacer frente a los impredecibles tipos de cambio de cierre de los eventos, y en la venta lo antes posible de cuantos más Snapcoins mejor.
+Esto causaría inevitablemente un desequilibrio entre la Oferta y la Demanda, con consecuencias catastróficas para el valor de nuestros Tokens lo que supondría grandes prdidas para sus Titulares.
+\newline \newline
+Por otro lado, poder controlar los fondos nos permitirá gestionar correctamente el tipo de cambio al que se venden los Snapcoins, y por lo tanto crear un entorno más saludable para que aumenten de valor a medida que nuestra base de clientes se expande y la demanda aumenta junto con los tipos de cierre de los eventos.
+\newline \newline
+Esto puede tener unas enormes consecuencias positivas tanto para los inversores como para los clientes.
+\newline \newline
+Creemos firmemente que cada relación de negocios debería basarse en el consenso mutuo y aún más importante en la confianza; por ello, si no estás dispuesto o no eres capaz de confiar en nuestro Equipo para la gestión económica de tus fondos, te recomendamos que no inviertas en nuestro negocio.
+
+\newpage
+\chapter{¿Cómo aumentará el valor de Snapcoin?}
+\noindent
+Snapcoin será un token vendido al público en general.
+\newline
+Un individuo no tiene que ser un entendido en criptomonedas o tener ningún conocimiento sobre la manera en que funcionan para beneficiarse de nuestro modelo económico.
+\newline
+Gracias a nuestro modelo, los clientes no tienen por qué saber que Snapcoin es una criptomoneda. De hecho, esperamos que actúe como un nexo
+para la gente que aún no es consciente del poder de esta increíble tecnología y contribuirá a su generalización gracias a los incentivos ofrecidos por nuestra plataforma y su facilidad de uso.
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{graph-customers.png}
+\end{figure}
+\newpage \noindent
+En lor próximos años esperamos que Snapcoin sea aceptado como medio de intercambio en varias páginas web y servicios, y esperamos que esto ocurra cuando nuestro volumen de negocios alcance una cantidad suficiente para el interés de grandes compañas en el mercado de drop shipment.
+\newline \noindent
+Dado que seleccionamos directamente los minoristas con los que hacemos negocios, incentivaremos este proceso favoreciendo a los que decidan aceptar Snapcoin como medio de pago.
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{forecast-snapcoin.png}
+\end{figure}
+\noindent
+Siendo este el caso, el valor de Snapcoin vendrá dado por el tamaño del mercado que lo respalde, a medida que más gente conozca
+nuestra Propuesta de Valor.
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{snp-growth.png}
+\end{figure}
+\newpage \noindent
+El incremento de valor de Snapcoin afectará también positivamente en los costes de participacin en eventos, puesto que se calculan como una fracción del precio al por menor del producto en EUR.
+\newline \newline
+Esto supone que una persona que compr 100 Snapcoins a 0.33\euro, habiendo subido el valor a 3.30\euro podrá unirse a 10 veces más eventos con la misma cantidad de monedas.
+\newline \newline
+Siendo Snapup el mayor titular de Tokens, el precio de Snapcoin estará muy influenciado por nuestra presencia en el mercado.
+\newline
+
+\chapter{Socios Potenciales}
+
+\begin{center}
+\textbf {Drop shipment de Artículos Premium \y Consumo}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8cm]{brands_logos/amazon.jpg}
+\end{figure}
+\noindent \newline
+\textbf {Electrónica \y Tecnología}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8cm]{brands_logos/mediamarkt.png}
+\end{figure}
+\noindent \newline
+\textbf {Events}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6.5cm]{brands_logos/viagogo.png}
+\end{figure}
+\noindent \newline \newline
+\textbf {Retailers de Moda}
+\begin{figure}[H]
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=0.8\textwidth]{brands_logos/footlocker.png}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=0.9\textwidth, right]{brands_logos/brandsdistribution.png}
+\end{subfigure}
+\end{figure}
+\noindent \newline \newline
+\end{center}
+
+
+\titlespacing{\chapter}{0pt}{-75pt}{18ex}
+\chapter{Our Team}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{team.png}
+\end{figure}
+
+
+\newpage
+\chapter{Stack Technológico}
+\begin{center}
+\textbf {Stack tecnológico gracias a}
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=0.8\textwidth]{brands_logos/google.png}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth, right]{brands_logos/facebook_logo.png}
+  \end{subfigure}
+\end{figure}
+\noindent \newline \newline
+
+\textbf {Transacciones Financieras \y Gestin de Seguridad gracias a}
+\newline
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=0.8\textwidth]{brands_logos/unicredit.jpg}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth, right]{brands_logos/intesa.png}
+  \end{subfigure}
+\end{figure}
+\noindent \newline
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=0.8\textwidth]{brands_logos/unipol.png}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth, right]{brands_logos/allianz.jpg}
+  \end{subfigure}
+\end{figure}
+\end{center}
+
+
+\chapter{Contacto}
+\noindent
+\textbf {¡Únete mientras innovamos la manera en que la gente compra productos premium!}
+\begin{itemize}
+\item
+Twitter: \href{https://twitter.com/snapupofficial}{@snapupofficial}
+\item
+Facebook: \href{https://www.facebook.com/snapupltd/}{@snapupltd}
+\item
+Bitcoin Talk: \href{https://bitcointalk.org/index.php?topic=2036781.0}{https://bitcointalk.org/index.php?topic=2036781.0}
+\item
+Reddit: \href{https://www.reddit.com/user/snapupofficial/}{https://www.reddit.com/user/snapupofficial/}
+\end{itemize}
+
+
+\section*{¡SÉ UNO DE LOS NUESTROS!}
+Puedes conocernos y chatear directamente con nuestro equipo a través de:
+\begin{itemize}
+\item
+Slack: \href{http://snapup.herokuapp.com}{http://snapup.herokuapp.com}
+\item
+Telegram: \href{https://t.me/joinchat/Bw1eig2aRPYrrGfOeky4Cw}{@snapup}
+\end{itemize}
+
+\section*{ÚNETE A LA CROWDSALE!}
+
+Página Web Oficial de la ICO: \href{http://ico.snapup.biz}{http://ico.snapup.biz}
+
+\section*{PRUEBA LA DEMO}
+
+DEMO: \href{http://demo.snapup.biz}{http://demo.snapup.biz}
+\noindent \newline \newline \newline
+¿Tienes alguna pregunta o petición especial? Envíanos un email a \href{mailto:info@snapup.biz}{info@snapup.biz}
+
+\newpage
+\chapter{Referencias}
+\begin{itemize}
+  \item
+  [1]: \href{https://www.psychologytoday.com/blog/ill-have-what-shes-having/201405/why-do-we-buy-luxury-brands-and-how-do-they-make-us-feel} {https://www.psychologytoday.com/blog/ill-have-what-shes-having/201405/why-do-we-buy-luxury-brands-and-how-do-they-make-us-feel}
+  \item
+  [2]: \href{http://www.retailwire.com/discussion/are-millennials-and-gen-z-more-about-convenience-or-price-when-they-shop/} {http://www.retailwire.com/discussion/are-millennials-and-gen-z-more-about-convenience-or-price-when-they-shop/}
+  \item
+  [3]: \href{https://www.theguardian.com/technology/2016/nov/02/mobile-web-browsing-desktop-smartphones-tablets} {https://www.theguardian.com/technology/2016/nov/02/mobile-web-browsing-desktop-smartphones-tablets}
+  \item
+  [4]: \href{https://www.searchenginejournal.com/75-internet-use-will-mobile-2017-report/177433/} {https://www.searchenginejournal.com/75-internet-use-will-mobile-2017-report/177433/}
+  \item
+  [5]: \href{http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=tin00096&plugin=1} {http://ec.europa.eu/eurostat/tgm/table.do?language=en\&pcode=tin00096}
+  \item
+  [6]: \href{http://tech.firstpost.com/news-analysis/61-percent-people-check-their-smartphones-within-5-minutes-of-waking-up-says-deloitte-survey-355141.html} {http://tech.firstpost.com/news-analysis/61-percent-people-check-their-smartphones-within-5-minutes-of-waking-up-says-deloitte-survey-355141.html}
+  \item
+  [7]: \href{https://techcrunch.com/2015/06/22/consumers-spend-85-of-time-on-smartphones-in-apps-but-only-5-apps-see-heavy-use/} {https://techcrunch.com/2015/06/22/consumers-spend-85-of-time-on-smartphones-in-apps-but-only-5-apps-see-heavy-use/}
+  \item
+  [8]: \href{http://andrewchen.co/new-data-shows-why-losing-80-of-your-mobile-users-is-normal-and-that-the-best-apps-do-much-better/} {http://andrewchen.co/new-data-shows-why-losing-80-of-your-mobile-users-is-normal-and-that-the-best-apps-do-much-better/}
+\end{itemize}
+
+
+\end{document}
